@@ -4,17 +4,35 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WebcamComponent } from './webcam/webcam.component';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {WebcamModule} from "ngx-webcam";
+import {MatDialogRef, MatDialog} from "@angular/material/dialog";
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WebcamComponent
+    WebcamComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    WebcamModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+
+  ],
+  entryComponents: [
+    WebcamComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
