@@ -1,1 +1,39 @@
-<webcam (initError)="handleInitError($event)"></webcam>
+<webcam
+  (initError)="handleInitError($event)"
+  [height]="200" [width]="375"
+  [trigger]="triggerObservable"
+  (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+  [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+  [videoOptions]="videoOptions"
+  [imageQuality]="1"
+  (cameraSwitched)="cameraWasSwitched($event)"
+
+  [ngClass]="{
+  'newImage_show':webcamImage ===null,
+  'newImage_hide':webcamImage !=null
+  }"
+></webcam>
+<img
+  id="imageContainer"
+  src="{{webcamImage}}"
+     [ngClass]="{
+  'newImage_hide':webcamImage ===null,
+  'newImage_show':webcamImage !=null
+  }"
+     />
+
+<div>
+  <button class="actionBtn btn btn-primary" (click)="triggerSnapshot();" type="button"
+  [ngClass]="{
+  'newImage_show':webcamImage ===null,
+  'newImage_hide':webcamImage !=null
+  }"
+  >Take A Picture</button>
+  <div [ngClass]="{
+  'newImage_hide':webcamImage ===null,
+  'newImage_show':webcamImage !=null
+  }">
+  <button class="actionBtn btn btn-primary"  type="button" (click)="savePicture()">Save Picture</button>
+  <button class="actionBtn btn btn-warning" type="button" (click)="cancelPicture()">Cancel Picture</button>
+  </div>
+</div>

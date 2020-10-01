@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   openWebCam() {
     const dialogRef = this.dialog.open(
       WebcamComponent,
-      {width: '450px', height:'400px'}
+      {width: '320px', height:'275px'}
     );
     dialogRef.afterClosed().subscribe(() => {
 

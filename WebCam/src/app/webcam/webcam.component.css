@@ -1,0 +1,10 @@
+.newImage_hide{
+  display:none;
+}
+.newImage_show{
+  display:block;
+}
+#imageContainer{
+  height:200px;
+  width:265px;
+}
